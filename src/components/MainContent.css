@@ -1,0 +1,71 @@
+.mainContent {
+  flex: 1;
+  min-width: 0;
+  padding: 24px;
+  box-sizing: border-box;
+}
+.searchContainer {
+  position: relative;
+  width: 350px;
+}
+
+.searchBox {
+  display: flex;
+  width: 100%;
+  border: 1px solid #d6c2a5;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+}
+
+.searchBox input {
+  flex: 1;
+  padding: 12px 14px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.dropdownBtn {
+  width: 45px;
+  border: none;
+  border-left: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+}
+
+.dropdownBtn:hover {
+  background: #f5e6d0;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #d6c2a5;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.dropdownMenu button {
+  display: block;
+  width: 100%;
+  padding: 12px 14px;
+  border: none;
+  background: white;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdownMenu button:hover {
+  background: #f5e6d0;
+}
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 24px;
+}
