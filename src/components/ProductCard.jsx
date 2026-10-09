@@ -1,10 +1,11 @@
 import "./ProductCard.css";
-export default function ProductCard({ product, onAdd }) {
+import { memo } from "react";
+ function ProductCard({ product, onAdd }) {
     return (
         <div className="productCard">
 
             <div className="productImage">
-                <img src={product.image} alt={product.name} />
+                <img src={product.image} alt={product.name} loading="lazy" />
             </div>
 
             <div className="productInfo">
@@ -31,3 +32,4 @@ export default function ProductCard({ product, onAdd }) {
         </div>
     );
 }
+export default memo(ProductCard);

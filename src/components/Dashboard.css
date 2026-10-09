@@ -1,7 +1,7 @@
 .dashboardContainer {
   width: 15%;
   min-height: calc(100vh - 70px);
-  background-color: beige;
+  background-color: #ffffff;
   padding: 24px 16px;
   box-sizing: border-box;
   flex-shrink: 0;

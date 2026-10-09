@@ -1,7 +1,8 @@
 import "./OrderCart.css";
 import { useState } from "react";
+import { memo } from "react";
 
-export default function OrderCart({
+ function OrderCart({
     cart,
     onClose,
     onIncrease,
@@ -157,3 +158,4 @@ export default function OrderCart({
         </aside>
     );
 }
+export default memo(OrderCart);

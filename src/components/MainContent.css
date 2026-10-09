@@ -27,7 +27,9 @@
   outline: none;
   font-size: 14px;
 }
-
+.searchBox input,button:hover{
+cursor: pointer;
+}
 .dropdownBtn {
   width: 45px;
   border: none;
@@ -38,6 +40,7 @@
 
 .dropdownBtn:hover {
   background: #f5e6d0;
+  
 }
 
 .dropdownMenu {
