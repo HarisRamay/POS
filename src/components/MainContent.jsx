@@ -42,6 +42,12 @@ export default function MainContent() {
         setCartOpen(true);
     };
 
+    const removeFromCart = (id) => {
+        setCart((currentCart) =>
+            currentCart.filter((item) => item.id !== id)
+        );
+    };
+
     const increaseQuantity = (id) => {
 
         setCart((currentCart) =>
@@ -91,59 +97,63 @@ export default function MainContent() {
     }
     return (
         <div className="mainContent">
-            <h1>POS / New Order .....!!!!!</h1>
-            <div className="searchContainer">
-                <div className="searchBox">
-                    <input type="text"
-                        placeholder="Search Product....."
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)} />
+            <div className="productsSection">
+                <h1>POS / New Order .....!!!!!</h1>
+                <div className="searchContainer">
+                    <div className="searchBox">
+                        <input type="text"
+                            placeholder="Search Product....."
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)} />
 
-                    <button onClick={() => setIsOpen(!isOpen)}>
-                        {isOpen ? "▲" : "▼"}
-                    </button>
+                        <button onClick={() => setIsOpen(!isOpen)}>
+                            {isOpen ? "▲" : "▼"}
+                        </button>
+
+                    </div>
+                    {isOpen && (
+                        <div className="dropdownMenu">
+                            <button onClick={() => handleOptionClick("All Products")}>
+                                All Products
+                            </button>
+                            <button onClick={() => handleOptionClick("Pizza")}>
+                                Pizza
+                            </button>
+                            <button onClick={() => handleOptionClick("Burgers")}>
+                                Burgers
+                            </button>
+                            <button onClick={() => handleOptionClick("Pasta")}>
+                                Pasta
+                            </button>
+                            <button onClick={() => handleOptionClick("Desserts")}>
+                                Desserts
+                            </button>
+                            <button onClick={() => handleOptionClick("Beverages")}>
+                                Beverages
+                            </button>
+                        </div>
+                    )}
 
                 </div>
-                {isOpen && (
-                    <div className="dropdownMenu">
-                        <button onClick={() => handleOptionClick("All Products")}>
-                            All Products
-                        </button>
-                        <button onClick={() => handleOptionClick("Pizza")}>
-                            Pizza
-                        </button>
-                        <button onClick={() => handleOptionClick("Burgers")}>
-                            Burgers
-                        </button>
-                        <button onClick={() => handleOptionClick("Pasta")}>
-                            Pasta
-                        </button>
-                        <button onClick={() => handleOptionClick("Desserts")}>
-                            Desserts
-                        </button>
-                        <button onClick={() => handleOptionClick("Beverages")}>
-                            Beverages
-                        </button>
-                    </div>
-                )}
+                <div className="productGrid">
+                    {filteredProducts.map((product) => (
+                        <ProductCard
+                            key={product.id}
+                            product={product}
+                            onAdd={addToCart} />
+                    ))}
 
-            </div>
-            <div className="productGrid">
-                {filteredProducts.map((product) => (
-                    <ProductCard
-                        key={product.id}
-                        product={product}
-                        onAdd={addToCart} />
-                ))}
+                </div>
 
             </div>
             {cartOpen && (
                 <OrderCart
                     cart={cart}
                     onClose={() => setCartOpen(false)}
-                     onIncrease={increaseQuantity}
+                    onIncrease={increaseQuantity}
                     onDecrease={decreaseQuantity}
-                    
+                    onRemove={removeFromCart}
+
                 />
             )}
 

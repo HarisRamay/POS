@@ -1,7 +1,6 @@
 .orderCart {
-    position: fixed;
     top: 0;
-    right: 0;
+    flex: 0 0 340px;
 
     width: 380px;
     height: 100vh;
@@ -180,4 +179,16 @@
 
 .placeOrderButton:hover {
     background-color: #333336;
+}
+.deleteItemButton {
+  border: none;
+  border-radius: 5px;
+  padding: 6px 10px;
+  background-color: #fee2e2;
+  color: #b91c1c;
+  cursor: pointer;
+}
+
+.deleteItemButton:hover {
+  background-color: #fecaca;
 }

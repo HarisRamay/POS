@@ -81,7 +81,7 @@ const products = [
     name: "Malai Boti Pizza",
     category: "Pizza",
     price: 12.99,
-    image: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002",
+    image: "https://unsplash.com/s/photos/pepperoni-pizza",
   },
 ];
 export default products;

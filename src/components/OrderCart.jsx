@@ -1,11 +1,15 @@
 import "./OrderCart.css";
+import { useState } from "react";
 
 export default function OrderCart({
     cart,
     onClose,
     onIncrease,
-    onDecrease
+    onDecrease,
+    onRemove,
 }) {
+    const [taxRate, setTaxRate] = useState(10);
+    const [discount, setDiscount] = useState(0);
 
     // Calculate subtotal
     const subtotal = cart.reduce(
@@ -13,14 +17,11 @@ export default function OrderCart({
         0
     );
 
-    // Tax = 10%
-    const tax = subtotal * 0.10;
 
-    // Fixed discount for now
-    const discount = 2;
 
-    // Final total
-    const total = subtotal + tax - discount;
+    const tax = subtotal * (taxRate / 100);
+    const appliedDiscount = Math.min(discount, subtotal + tax);
+    const total = Math.max(0, subtotal + tax - appliedDiscount);
 
 
     return (
@@ -43,6 +44,8 @@ export default function OrderCart({
 
             {/* CART ITEMS */}
             <div className="cartItems">
+
+
 
                 {cart.map((item) => (
 
@@ -82,8 +85,17 @@ export default function OrderCart({
                             </button>
 
                         </div>
+                        <button
+                            className="deleteItemButton"
+                            onClick={() => onRemove(item.id)}
+                            aria-label={`Delete ${item.name}`}
+                        >
+                            Delete
+                        </button>
 
                     </div>
+
+
 
                 ))}
 
@@ -100,14 +112,33 @@ export default function OrderCart({
 
 
                 <div className="summaryRow">
-                    <span>Tax (10%)</span>
-                    <span>${tax.toFixed(2)}</span>
+                    <label>Tax (%)</label>
+                    <input
+                        type="number"
+                        min="0"
+                        value={taxRate}
+                        onChange={(e) =>
+                            setTaxRate(Math.max(0, Number(e.target.value)))
+                        }
+                    />
                 </div>
 
-
                 <div className="summaryRow discountRow">
-                    <span>Discount</span>
-                    <span>-${discount.toFixed(2)}</span>
+                    <label>Discount ($)</label>
+                    <input
+                        type="number"
+                        min="0"
+                        max={subtotal + tax}
+                        value={discount}
+                        onChange={(e) =>
+                            setDiscount(
+                                Math.min(
+                                    subtotal + tax,
+                                    Math.max(0, Number(e.target.value))
+                                )
+                            )
+                        }
+                    />
                 </div>
 
 
