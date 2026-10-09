@@ -11,7 +11,7 @@ const products = [
     name: "Chicken Burger",
     category: "Burgers",
     price: 7.99,
-    image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd",
+    image: "https://images.unsplash.com/photo-1606755962773-d324e0a13086",
   },
   {
     id: 3,
@@ -32,42 +32,42 @@ const products = [
     name: "Pepsi",
     category: "Beverages",
     price: 1.99,
-    image: "https://images.unsplash.com/photo-1600271886742-f049cd451bba",
+    image: "https://images.unsplash.com/photo-1629203851122-3726ecdf080e",
   },
-   {
+  {
     id: 6,
     name: "Sprite",
     category: "Beverages",
     price: 1.99,
-    image: "https://images.unsplash.com/photo-1600271886742-f049cd451bba",
+    image: "https://images.unsplash.com/photo-1513558161293-cdaf765edfd7",
   },
   {
     id: 7,
     name: "Dew",
     category: "Beverages",
     price: 1.99,
-    image: "https://images.unsplash.com/photo-1600271886742-f049cd451bba",
+    image: "https://images.unsplash.com/photo-1629203851122-3726ecdf080e",
   },
   {
     id: 8,
     name: "Mint Margarita",
     category: "Beverages",
     price: 1.99,
-    image: "https://images.unsplash.com/photo-1600271886742-f049cd451bba",
+    image: "https://images.unsplash.com/photo-1513558161293-cdaf765edfd7",
   },
   {
     id: 9,
     name: "Crunch Cheese Pasta",
     category: "Pasta",
     price: 9.99,
-    image: "https://images.unsplash.com/photo-1645112411341-6c4fd023714a",
+    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141",
   },
   {
     id: 10,
     name: "Deep Dish Pizza",
     category: "Pizza",
     price: 15.99,
-    image: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002",
+    image: "https://images.unsplash.com/photo-1579751626657-72bc17010498",
   },
   {
     id: 11,
@@ -81,7 +81,8 @@ const products = [
     name: "Malai Boti Pizza",
     category: "Pizza",
     price: 12.99,
-    image: "https://unsplash.com/s/photos/pepperoni-pizza",
+    image: "https://images.unsplash.com/photo-1571407970349-bc81e7e96d47",
   },
 ];
+
 export default products;

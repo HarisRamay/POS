@@ -133,16 +133,17 @@
 .summaryRow {
     display: flex;
     justify-content: space-between;
-
-    margin-bottom: 12px;
-
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 16px;
     font-size: 15px;
     color: #5a4938;
 }
-
-.discountRow {
-    color: #8b5e3c;
+.summaryRow label{
+    font-weight: 500;
+    flex: 1;
 }
+
 
 .totalRow {
     display: flex;
@@ -191,4 +192,38 @@
 
 .deleteItemButton:hover {
   background-color: #fecaca;
+}
+.summaryRow input {
+    width: 100px;
+    height: 38px;
+    padding: 0 12px;
+    box-sizing: border-box;
+    border: 1px solid #d6c2a5;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #3e3024;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: right;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.summaryRow input:focus {
+    border-color: #8b7355;
+    box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.15);
+}
+
+.summaryRow input:hover {
+    border-color: #a58a68;
+}
+
+/* Discount label */
+.discountRow label {
+    color: #8b5e3c;
+}
+
+/* Remove awkward number input spacing */
+.summaryRow input::-webkit-inner-spin-button,
+.summaryRow input::-webkit-outer-spin-button {
+    margin: 0;
 }

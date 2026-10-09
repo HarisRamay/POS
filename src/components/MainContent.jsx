@@ -27,7 +27,6 @@ export default function MainContent() {
                         ? { ...item, quantity: item.quantity + 1 }
                         : item
                 );
-
             }
 
             return [
