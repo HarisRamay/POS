@@ -1,8 +1,8 @@
 import "./MainContent.css"
 import { useState } from "react";
-import products from "./products";
-import ProductCard from "./ProductCard";
-import OrderCart from "./OrderCart";
+import products from "../components/products";
+import ProductCard from "../components/ProductCard";
+import OrderCart from "../features/OrderCart";
 
 
 export default function MainContent() {

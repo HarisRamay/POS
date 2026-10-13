@@ -1,7 +1,7 @@
-import Header from "./Header";
-import Dashboard from "./Dashboard";
-import MainContent from "./MainContent";
-import "./MainContent";
+import Header from "../components/Header";
+import Sidebar from "../components/Sidebar";
+import MainContent from "../features/MainContent";
+
 import "./PosMainPage.css"
 export default function PosMainPage() {
     return (
@@ -11,7 +11,7 @@ export default function PosMainPage() {
             
 
             <div className="PageBody">
-                <Dashboard />
+                <Sidebar />
                 <MainContent />
             </div>
 

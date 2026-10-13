@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import SignIn from "./components/SignIn";
-import SignUp from "./components/SignUp";
-import PosMainPage from "./components/PosMainPage";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import PosMainPage from "./pages/PosMainPage";
 
 export default function App() {
 
