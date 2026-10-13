@@ -1,10 +1,14 @@
 .dashboardContainer {
-  width: 15%;
-  min-height: calc(100vh - 70px);
+  width: 220px;
+  height: calc(100vh - 70px);
   background-color: #ffffff;
   padding: 24px 16px;
   box-sizing: border-box;
-  flex-shrink: 0;
+  flex: 0 0 220px;
+
+  position: sticky;
+  top: 70px;
+  overflow-y: auto;
 }
 
 .dashboardNav {

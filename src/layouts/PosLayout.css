@@ -1,0 +1,22 @@
+.posLayout {
+  min-height: 100vh;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 70px;
+}
+
+.posBody {
+  display: flex;
+  align-items: flex-start;
+  min-height: calc(100vh - 70px);
+}
+
+.posMain {
+  flex: 1;
+  min-width: 0;
+  padding: 24px;
+}

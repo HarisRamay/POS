@@ -1,0 +1,85 @@
+
+.recentOrders {
+  width: 100%;
+  min-width: 0;
+}
+
+.recentOrdersHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.recentOrdersHeader h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #29251f;
+}
+
+.recentOrdersHeader span {
+  font-size: 13px;
+  color: #77716a;
+}
+
+.ordersTableWrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.ordersTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.ordersTable th,
+.ordersTable td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #eee8df;
+  font-size: 13px;
+}
+
+.ordersTable th {
+  background: #f8f5f0;
+  color: #6e6255;
+  font-weight: 600;
+}
+
+.ordersTable td {
+  color: #38332d;
+}
+
+.ordersTable tbody tr:hover {
+  background: #fcfaf7;
+}
+
+.orderStatus {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.orderStatus.completed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.orderStatus.preparing {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.orderStatus.pending {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.orderStatus.cancelled {
+  background: #fee2e2;
+  color: #991b1b;
+}
