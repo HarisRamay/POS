@@ -4,6 +4,7 @@ import SignUp from "./pages/SignUp";
 import PosLayout from "./layouts/PosLayout";
 import Dashboard from "./pages/Dashboard";
 import PosMainPage from "./pages/PosMainPage";
+import Orders from "./pages/Orders";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
       <Route element={<PosLayout />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/mainpage" element={<PosMainPage />} />
+        <Route path="/orders" element={<Orders />} />
       </Route>
     </Routes>
   );

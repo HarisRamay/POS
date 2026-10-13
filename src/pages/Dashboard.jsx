@@ -1,6 +1,7 @@
 import SalesChart from "../components/SalesChart";
 import RecentOrders from "../components/RecentOrders";
 import "./Dashboard.css";
+import { useOrders } from "../context/OrdersContext";
 
 const stats = [
     { title: "Today's Sales", value: "Rs. 128,400", detail: "Today's revenue" },
@@ -10,6 +11,30 @@ const stats = [
 ];
 
 export default function Dashboard() {
+    const { orders } = useOrders();
+
+    const completedOrders = orders.filter(
+        (order) => order.status === "Completed"
+    );
+
+    const today = new Date().toDateString();
+
+    const todaysOrders = orders.filter(
+        (order) => new Date(order.createdAt).toDateString() === today
+    );
+
+    const todaysCompletedOrders = todaysOrders.filter(
+        (order) => order.status === "Completed"
+    );
+
+    const todaysSales = todaysCompletedOrders.reduce(
+        (sum, order) => sum + Number(order.total || 0),
+        0
+    );
+
+    const averageOrder = todaysCompletedOrders.length
+        ? todaysSales / todaysCompletedOrders.length
+        : 0;
     return (
         <div className="dashboardPage">
             <div className="dashboardHeading">

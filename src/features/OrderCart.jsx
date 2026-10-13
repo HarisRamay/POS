@@ -1,3 +1,4 @@
+
 import "./OrderCart.css";
 import { useState } from "react";
 import { memo } from "react";
@@ -19,8 +20,6 @@ function OrderCart({
         0
     );
 
-
-
     const tax = subtotal * (taxRate / 100);
     const appliedDiscount = Math.min(discount, subtotal + tax);
     const total = Math.max(0, subtotal + tax - appliedDiscount);
@@ -31,7 +30,30 @@ function OrderCart({
             return;
         }
 
-        const orderNumber = `ORD-${Date.now().toString().slice(-6)}`;
+        // Shared order data: save a snapshot before clearing the cart.
+        const orderData = {
+            customer: "Walk-in Customer",
+            items: cart.map((item) => ({
+                id: item.id,
+                name: item.name,
+                price: item.price,
+                quantity: item.quantity,
+            })),
+            subtotal,
+            taxRate,
+            tax,
+            discount: appliedDiscount,
+            total,
+            payment: "Cash",
+        };
+
+        // Save through OrdersContext using the callback from MainContent.
+        const savedOrder = onPlaceOrder(orderData);
+
+        // Use the shared order ID on the receipt.
+        const orderNumber =
+            savedOrder?.id ?? `ORD-${Date.now().toString().slice(-6)}`;
+
         const orderDate = new Date().toLocaleString();
 
         const receiptItems = cart
@@ -50,10 +72,13 @@ function OrderCart({
         const receiptWindow = window.open("", "_blank", "width=400,height=700");
 
         if (!receiptWindow) {
-            alert("Please allow pop-ups to print the receipt.");
+            alert(
+                `Order ${orderNumber} was saved, but the receipt popup was blocked. Please allow pop-ups to print the receipt.`
+            );
             return;
         }
 
+        // Original receipt design preserved.
         receiptWindow.document.write(`
     <!DOCTYPE html>
     <html>
@@ -173,10 +198,7 @@ function OrderCart({
         receiptWindow.document.close();
         receiptWindow.focus();
         receiptWindow.print();
-
-        onPlaceOrder();
     };
-
 
     return (
         <aside className="orderCart">
@@ -195,11 +217,8 @@ function OrderCart({
 
             </div>
 
-
             {/* CART ITEMS */}
             <div className="cartItems">
-
-
 
                 {cart.map((item) => (
 
@@ -217,7 +236,6 @@ function OrderCart({
                             </p>
 
                         </div>
-
 
                         {/* QUANTITY */}
                         <div className="quantityControls">
@@ -239,6 +257,7 @@ function OrderCart({
                             </button>
 
                         </div>
+
                         <button
                             className="deleteItemButton"
                             onClick={() => onRemove(item.id)}
@@ -249,12 +268,9 @@ function OrderCart({
 
                     </div>
 
-
-
                 ))}
 
             </div>
-
 
             {/* ORDER SUMMARY */}
             <div className="orderSummary">
@@ -263,7 +279,6 @@ function OrderCart({
                     <span>Subtotal</span>
                     <span>${subtotal.toFixed(2)}</span>
                 </div>
-
 
                 <div className="summaryRow">
                     <label>Tax (%)</label>
@@ -295,12 +310,10 @@ function OrderCart({
                     />
                 </div>
 
-
                 <div className="totalRow">
                     <span>Total</span>
                     <span>${total.toFixed(2)}</span>
                 </div>
-
 
                 <button
                     className="placeOrderButton"
@@ -314,4 +327,5 @@ function OrderCart({
         </aside>
     );
 }
+
 export default memo(OrderCart);

@@ -3,7 +3,7 @@ import { useState } from "react";
 import products from "../components/products";
 import ProductCard from "../components/ProductCard";
 import OrderCart from "../features/OrderCart";
-
+import { useOrders } from "../context/OrdersContext";
 
 export default function MainContent() {
     const [isOpen, setIsOpen] = useState(false);
@@ -11,6 +11,8 @@ export default function MainContent() {
     const [category, setCategory] = useState("All Products");
     const [cart, setCart] = useState([]);
     const [cartOpen, setCartOpen] = useState(false);
+
+    const { addOrder } = useOrders();
 
     const addToCart = (product) => {
 
@@ -152,7 +154,18 @@ export default function MainContent() {
                     onIncrease={increaseQuantity}
                     onDecrease={decreaseQuantity}
                     onRemove={removeFromCart}
-                    onPlaceOrder={() => setCart([])}
+                    onPlaceOrder={(orderData) => {
+                        console.log("Order data received:", orderData);
+
+                        const savedOrder = addOrder(orderData);
+
+                        console.log("Saved order:", savedOrder);
+
+                        setCart([]);
+                        setCartOpen(false);
+
+                        return savedOrder;
+                    }}
 
                 />
             )}

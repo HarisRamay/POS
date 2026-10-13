@@ -7,7 +7,7 @@ export default function Sidebar() {
             <nav className="dashboardNav">
                 <NavLink to="/dashboard">📊 Dashboard</NavLink>
                 <NavLink to="/mainpage">🛒 POS</NavLink>
-                <a href="">🧾 Orders</a>
+                <NavLink to="/orders">🧾 Orders</NavLink>
                 <a href="">📦 Products</a>
                 <a href="">📊 Inventory</a>
                 <a href="">👥 Customers</a>
