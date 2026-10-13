@@ -2,12 +2,13 @@ import "./OrderCart.css";
 import { useState } from "react";
 import { memo } from "react";
 
- function OrderCart({
+function OrderCart({
     cart,
     onClose,
     onIncrease,
     onDecrease,
     onRemove,
+    onPlaceOrder,
 }) {
     const [taxRate, setTaxRate] = useState(10);
     const [discount, setDiscount] = useState(0);
@@ -23,6 +24,158 @@ import { memo } from "react";
     const tax = subtotal * (taxRate / 100);
     const appliedDiscount = Math.min(discount, subtotal + tax);
     const total = Math.max(0, subtotal + tax - appliedDiscount);
+
+    const handlePlaceOrder = () => {
+        if (cart.length === 0) {
+            alert("Please add products before placing an order.");
+            return;
+        }
+
+        const orderNumber = `ORD-${Date.now().toString().slice(-6)}`;
+        const orderDate = new Date().toLocaleString();
+
+        const receiptItems = cart
+            .map(
+                (item) => `
+        <tr>
+          <td>${item.name}</td>
+          <td>${item.quantity}</td>
+          <td>$${item.price.toFixed(2)}</td>
+          <td>$${(item.price * item.quantity).toFixed(2)}</td>
+        </tr>
+      `
+            )
+            .join("");
+
+        const receiptWindow = window.open("", "_blank", "width=400,height=700");
+
+        if (!receiptWindow) {
+            alert("Please allow pop-ups to print the receipt.");
+            return;
+        }
+
+        receiptWindow.document.write(`
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Receipt ${orderNumber}</title>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            width: 300px;
+            margin: 20px auto;
+            color: #222;
+          }
+
+          h2, p {
+            text-align: center;
+            margin: 6px 0;
+          }
+
+          .divider {
+            border-top: 1px dashed #555;
+            margin: 12px 0;
+          }
+
+          table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+          }
+
+          th, td {
+            padding: 7px 2px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+          }
+
+          .summary p {
+            display: flex;
+            justify-content: space-between;
+            text-align: left;
+          }
+
+          .summary .grand-total {
+            font-size: 17px;
+            font-weight: bold;
+          }
+
+          .thank-you {
+            margin-top: 20px;
+            font-size: 12px;
+          }
+
+          @media print {
+            body {
+              margin: 0 auto;
+              width: 100%;
+            }
+          }
+        </style>
+      </head>
+
+      <body>
+        <h2>FixIT POS System</h2>
+        <p>Order Receipt</p>
+
+        <div class="divider"></div>
+
+        <p>Order: ${orderNumber}</p>
+        <p>${orderDate}</p>
+
+        <div class="divider"></div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Qty</th>
+              <th>Price</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${receiptItems}
+          </tbody>
+        </table>
+
+        <div class="divider"></div>
+
+        <div class="summary">
+          <p>
+            <span>Subtotal</span>
+            <span>$${subtotal.toFixed(2)}</span>
+          </p>
+
+          <p>
+            <span>Tax (${taxRate}%)</span>
+            <span>$${tax.toFixed(2)}</span>
+          </p>
+
+          <p>
+            <span>Discount</span>
+            <span>-$${appliedDiscount.toFixed(2)}</span>
+          </p>
+
+          <div class="divider"></div>
+
+          <p class="grand-total">
+            <span>Total</span>
+            <span>$${total.toFixed(2)}</span>
+          </p>
+        </div>
+
+        <p class="thank-you">Thank you for your visit!</p>
+      </body>
+    </html>
+  `);
+
+        receiptWindow.document.close();
+        receiptWindow.focus();
+        receiptWindow.print();
+
+        onPlaceOrder();
+    };
 
 
     return (
@@ -149,7 +302,10 @@ import { memo } from "react";
                 </div>
 
 
-                <button className="placeOrderButton">
+                <button
+                    className="placeOrderButton"
+                    onClick={handlePlaceOrder}
+                >
                     Place Order
                 </button>
 

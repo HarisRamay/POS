@@ -152,6 +152,7 @@ export default function MainContent() {
                     onIncrease={increaseQuantity}
                     onDecrease={decreaseQuantity}
                     onRemove={removeFromCart}
+                    onPlaceOrder={() => setCart([])}
 
                 />
             )}
