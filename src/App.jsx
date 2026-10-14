@@ -5,6 +5,9 @@ import PosLayout from "./layouts/PosLayout";
 import Dashboard from "./pages/Dashboard";
 import PosMainPage from "./pages/PosMainPage";
 import Orders from "./pages/Orders";
+import ProductsPage from "./pages/ProductsPage"
+import Inventory from "./pages/Inventory";
+import Customers from "./pages/Customers";
 
 export default function App() {
   return (
@@ -16,6 +19,9 @@ export default function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/mainpage" element={<PosMainPage />} />
         <Route path="/orders" element={<Orders />} />
+        <Route path="/products" element={<ProductsPage />} />
+        <Route path="/inventory" element={<Inventory />} />
+        <Route path="/customers" element={<Customers />} />
       </Route>
     </Routes>
   );
