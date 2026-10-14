@@ -231,6 +231,20 @@
     width: 100%;
   }
 }
+.orderStatusSelect {
+  padding: 7px 9px;
+  border: 1px solid #ded6ca;
+  border-radius: 7px;
+  background: white;
+  color: #514b44;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.orderStatusSelect:focus {
+  outline: 2px solid #e8dcc8;
+  border-color: #8b7355;
+}
 
 @media (max-width: 550px) {
   .ordersPageHeader {

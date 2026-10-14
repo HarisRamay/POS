@@ -77,3 +77,8 @@
     border-color: #8b7355;
     transform: translateY(-1px);
 }
+.dashboardNav a.active {
+  background-color: #e8dcc8;
+  border-color: #8b7355;
+  font-weight: 600;
+}
