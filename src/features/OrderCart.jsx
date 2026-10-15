@@ -36,6 +36,7 @@ function OrderCart({
             items: cart.map((item) => ({
                 id: item.id,
                 name: item.name,
+                category: item.category,
                 price: item.price,
                 quantity: item.quantity,
             })),

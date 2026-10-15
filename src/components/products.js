@@ -39,7 +39,7 @@ const products = [
     name: "Sprite",
     category: "Beverages",
     price: 1.99,
-    image: "https://images.unsplash.com/photo-1513558161293-cdaf765edfd7?auto=format&fit=crop&w=400&q=70",
+    image: "https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=400&q=70",
   },
   {
     id: 7,
@@ -53,7 +53,7 @@ const products = [
     name: "Mint Margarita",
     category: "Beverages",
     price: 1.99,
-    image: "https://images.unsplash.com/photo-1513558161293-cdaf765edfd7?auto=format&fit=crop&w=400&q=70",
+    image: "https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=400&q=70",
   },
   {
     id: 9,

@@ -8,6 +8,8 @@ import Orders from "./pages/Orders";
 import ProductsPage from "./pages/ProductsPage"
 import Inventory from "./pages/Inventory";
 import Customers from "./pages/Customers";
+import Reports from "./pages/Reports";
+import Settings from "./pages/Settings";
 
 export default function App() {
   return (
@@ -22,6 +24,8 @@ export default function App() {
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/inventory" element={<Inventory />} />
         <Route path="/customers" element={<Customers />} />
+         <Route path="/reports" element={<Reports />} />
+          <Route path="/settings" element={<Settings />} />
       </Route>
     </Routes>
   );

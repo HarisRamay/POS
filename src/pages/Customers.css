@@ -27,7 +27,7 @@
   padding: 12px 18px;
   border: none;
   border-radius: 8px;
-  background: #8b7355;
+  background: #18181b;
   color: white;
   cursor: pointer;
 }
@@ -277,7 +277,7 @@
 }
 
 .modal-submit-btn {
-    background: #8b7355;
+    background: #18181b;
     color: #fff;
     border: 1px solid #8b7355;
 }

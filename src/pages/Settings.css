@@ -1,0 +1,249 @@
+
+.settings-page {
+  min-height: 100%;
+  padding: 28px;
+  background: #f8f5f0;
+  color: #29231e;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.settings-page *,
+.settings-page *::before,
+.settings-page *::after {
+  box-sizing: border-box;
+}
+
+.settings-page-header {
+  margin-bottom: 25px;
+}
+
+.settings-eyebrow {
+  margin: 0 0 8px;
+  color: #795538;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.settings-page-header h1 {
+  margin: 0;
+  color: #30261e;
+  font-size: 30px;
+  font-weight: 750;
+}
+
+.settings-page-subtitle {
+  margin: 8px 0 0;
+  color: #85796d;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.settings-card {
+  max-width: 900px;
+  padding: 28px;
+  border: 1px solid #e8ded2;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 4px 18px rgb(69 45 25 / 4%);
+}
+
+.settings-card-title {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 28px;
+}
+
+.settings-icon {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 11px;
+  background: #f4e9dc;
+  color: #795538;
+}
+
+.settings-card-title h2 {
+  margin: 0;
+  color: #332920;
+  font-size: 17px;
+}
+
+.settings-card-title p {
+  margin: 6px 0 0;
+  color: #85796d;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.settings-general-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 20px;
+}
+
+.settings-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+  color: #514438;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.settings-field > input,
+.settings-field > select,
+.settings-input-icon input {
+  width: 100%;
+  min-width: 0;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid #e3d7ca;
+  border-radius: 8px;
+  outline: none;
+  background: #fffdfb;
+  color: #302820;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 400;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.settings-field input::placeholder {
+  color: #b0a397;
+}
+
+.settings-field > input:focus,
+.settings-field > select:focus,
+.settings-input-icon:focus-within {
+  border-color: #795538;
+  box-shadow: 0 0 0 3px rgb(121 85 56 / 10%);
+}
+
+.settings-input-icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  padding-left: 12px;
+  border: 1px solid #e3d7ca;
+  border-radius: 8px;
+  background: #fffdfb;
+  color: #8b7355;
+}
+
+.settings-input-icon input {
+  height: 42px;
+  padding-left: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.settings-input-icon input:focus {
+  outline: none;
+}
+
+.settings-input-icon input:focus-visible {
+  outline: none;
+}
+
+.settings-address-field {
+  grid-column: 1 / -1;
+}
+
+.settings-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #f0e8df;
+}
+
+.settings-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 43px;
+  padding: 11px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #795538;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.settings-primary-btn:hover {
+  background: #62432c;
+  transform: translateY(-1px);
+}
+
+.settings-notice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 900px;
+  margin-bottom: 18px;
+  padding: 13px 15px;
+  border: 1px solid #cce4d2;
+  border-radius: 9px;
+  background: #f0faf2;
+  color: #286b3d;
+  font-size: 13px;
+}
+
+.settings-notice svg {
+  flex-shrink: 0;
+}
+
+/* Responsive */
+
+@media (max-width: 760px) {
+  .settings-page {
+    padding: 18px;
+  }
+
+  .settings-page-header h1 {
+    font-size: 26px;
+  }
+
+  .settings-card {
+    padding: 20px;
+  }
+
+  .settings-general-grid {
+    grid-template-columns: 1fr;
+    gap: 19px;
+  }
+
+  .settings-address-field {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .settings-page {
+    padding: 12px;
+  }
+
+  .settings-card {
+    padding: 16px;
+  }
+
+  .settings-card-actions {
+    justify-content: stretch;
+  }
+
+  .settings-primary-btn {
+    width: 100%;
+  }
+}

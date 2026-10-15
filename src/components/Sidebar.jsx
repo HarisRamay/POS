@@ -6,13 +6,12 @@ export default function Sidebar() {
         <div className="dashboardContainer">
             <nav className="dashboardNav">
                 <NavLink to="/dashboard">📊 Dashboard</NavLink>
-                <NavLink to="/mainpage">🛒 POS</NavLink>
+                <NavLink to="/mainpage">🛒 New Order</NavLink>
                 <NavLink to="/orders">🧾 Orders</NavLink>
-                <NavLink to="/products">📦 Products</NavLink>
                 <NavLink to="/inventory">📊 Inventory</NavLink>
                  <NavLink to="/customers">👥 Customers</NavLink>
-                <a href="">📈 Reports</a>
-                <a href="">⚙ Settings</a>
+                 <NavLink to="/reports">📈 Reports</NavLink>
+                 <NavLink to="/settings">⚙ Settings</NavLink>
                 <button className="logoutBtn" onClick={() => navigate("/")}>
                     Logout
                 </button>

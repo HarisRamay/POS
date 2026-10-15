@@ -99,7 +99,6 @@ export default function MainContent() {
     return (
         <div className="mainContent">
             <div className="productsSection">
-                <h1>POS / New Order .....!!!!!</h1>
                 <div className="searchContainer">
                     <div className="searchBox">
                         <input type="text"
