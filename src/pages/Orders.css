@@ -3,7 +3,12 @@
   width: 100%;
   min-width: 0;
   color: #29251f;
+  background: #faf7f2;
+  box-sizing: border-box;
+  padding: 28px;
+  border-radius: 10px;
 }
+
 
 .ordersPageHeader {
   display: flex;

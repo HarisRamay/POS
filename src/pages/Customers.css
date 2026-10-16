@@ -1,6 +1,9 @@
 .customers-page {
   padding: 24px;
   color: #18181b;
+  background: #faf7f2;
+  border-radius: 10px;
+
 }
 
 .customers-header {

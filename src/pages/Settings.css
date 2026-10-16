@@ -6,6 +6,7 @@
   color: #29231e;
   box-sizing: border-box;
   font-family: inherit;
+  border-radius: 10px;
 }
 
 .settings-page *,

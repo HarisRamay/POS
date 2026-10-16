@@ -4,6 +4,8 @@
   padding: 24px;
   box-sizing: border-box;
   display: flex;
+  background: #faf7f2;
+  border-radius: 10px;
   gap: 20px;
 }
 .searchContainer {

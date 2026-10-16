@@ -6,6 +6,7 @@
   padding: 28px;
   color: #30251f;
   background: #faf7f2;
+  border-radius: 10px;
 }
 
 .inventoryPage * {
@@ -300,4 +301,7 @@
   .inventoryPanel {
     padding: 12px;
   }
+}
+.inventoryTable tbody tr:hover {
+  background: #faf7f2;
 }
