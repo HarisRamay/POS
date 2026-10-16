@@ -1,83 +1,106 @@
-Restaurant POS System
-A restaurant Point of Sale (POS) frontend built with React and Vite. It provides a workspace for browsing menu items, building orders, and managing common restaurant operations through a clean, responsive interface.
-Features
-- Menu and product browsing — browse products and filter them by category.
-- Product search — quickly find menu items by name.
-- Shopping cart — add items, adjust quantities, and remove items before placing an order.
-- Order placement — submit an order from the cart.
-- Orders management — access saved orders through shared order state.
-- Customers — a dedicated page for customer information.
-- Inventory — a dedicated page for inventory-related information.
-- Settings — general application settings.
-- Responsive interface — layouts adapt to smaller screens.
-The exact behavior of each page depends on the current implementation. Authentication, database persistence, payment processing, and backend APIs are not assumed to be implemented.
 
-Tech Stack
-- React
-- Vite
-- React Router for client-side navigation
-- CSS for styling
-Getting Started
-Prerequisites
-Install a recent version of Node.js that includes npm.
-Installation
-1. Clone the repository:
-   git clone <your-repository-url>
-2. Move into the project directory:
-   cd POS
-3. Install dependencies:
-   npm install
-4. Start the development server:
-   npm run dev
-5. Open the local URL shown in your terminal by Vite (commonly http://localhost:5173).
-Available Scripts
-Command	Description
-npm run dev	Start the Vite development server
-npm run build	Create a production build
-npm run preview	Preview the production build locally
+# Restaurant POS System
 
+A modern **Restaurant Point of Sale (POS) System** built with **React** and **Vite**. This project provides an intuitive interface for managing restaurant menus, orders, customers, and inventory.
 
-These are standard Vite commands. Check the scripts section of package.json if your scripts have been customized.
-Project Structure
-This is an illustrative structure. Adjust it to match your actual repository.
+## Features
+
+- **Product Management:** Browse and search restaurant products.
+- **Category Filtering:** Filter products by categories such as Pizza, Pasta, and Beverages.
+- **Shopping Cart:** Add products, update quantities, and remove items.
+- **Order Management:** Place orders and manage saved orders.
+- **Customer Management:** View and manage customer information.
+- **Inventory Management:** Access inventory-related information.
+- **Settings:** Configure general application settings.
+- **Responsive Design:** User-friendly interface for different screen sizes.
+
+## Tech Stack
+
+- **React** — Frontend UI development.
+- **Vite** — Development server and build tool.
+- **React Router** — Client-side navigation.
+- **CSS** — Styling and responsive layouts.
+- **JavaScript** — Application logic.
+
+## Installation and Setup
+
+### Prerequisites
+
+Make sure you have **Node.js** and **npm** installed on your computer.
+
+### 1. Clone the Repository
+
+```bash
+git clone <your-repository-url>
+```
+
+### 2. Navigate to the Project Folder
+
+```bash
+cd POS
+```
+
+### 3. Install Dependencies
+
+```bash
+npm install
+```
+
+### 4. Start the Development Server
+
+```bash
+npm run dev
+```
+
+Open the local URL displayed in your terminal to view the application.
+
+## Available Commands
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Start the development server |
+| `npm run build` | Build the application for production |
+| `npm run preview` | Preview the production build |
+
+## Project Structure
+
+```text
 POS/
 ├── public/
 ├── src/
-│   ├── components/       # Reusable UI components and product data
-│   ├── context/          # Shared application state, such as orders
-│   ├── features/         # Feature-specific components, such as the cart
-│   ├── pages/            # Application pages
-│   ├── App.jsx            # Main application and routes
-│   └── main.jsx           # React entry point
+│   ├── components/
+│   ├── context/
+│   ├── features/
+│   ├── pages/
+│   ├── App.jsx
+│   └── main.jsx
 ├── index.html
 ├── package.json
 └── README.md
-How to Use
-1. Start the development server.
-2. Open the Menu page.
-3. Search for a product or select a category.
-4. Add products to the cart.
-5. Change quantities or remove products as needed.
-6. Place an order and review it in the Orders area, if available in the current build.
-7. Use the Customers, Inventory, and Settings pages for their available functions.
-Customization
-- Products and categories: update the product data in src/components/products.
-- Styling: edit the relevant CSS files alongside components and pages.
-- Navigation: update the routes in src/App.jsx (or wherever your router is configured).
-- Shared order state: review the Orders context under src/context.
-Current Limitations
-This README describes the project based on the features discussed so far. Verify the implementation before publishing. In particular, do not assume data persists after a refresh or across devices unless a backend or persistent storage has been configured.
-Future Improvements
-Possible next steps include:
-- Connect a backend and database for persistent products, customers, and orders.
-- Add authentication and role-based access.
-- Integrate payment processing and receipt printing.
-- Add low-stock alerts and inventory adjustments.
-- Add reports and sales analytics.
-- Add automated tests and deployment workflows.
-Contributing
-1. Create a branch for your change.
-2. Make and test your updates.
-3. Open a pull request describing the changes.
-License
-No license has been specified yet. Add a LICENSE file and update this section if you intend to distribute the project publicly.
+```
+
+## How to Use
+
+1. **Launch the Application:** Run `npm run dev`.
+2. **Browse Products:** Open the Menu page to view available products.
+3. **Search and Filter:** Find products using the search bar and category filters.
+4. **Manage the Cart:** Add products and adjust quantities.
+5. **Place Orders:** Submit an order using the shopping cart.
+6. **Manage Restaurant Data:** Use the Orders, Customers, Inventory, and Settings pages as available.
+
+## Future Improvements
+
+- **Backend Integration:** Store products, customers, and orders in a database.
+- **Authentication:** Add secure login and role-based access.
+- **Payment Integration:** Support restaurant payment workflows.
+- **Receipt Printing:** Generate receipts for completed orders.
+- **Sales Reports:** Add revenue summaries and analytics.
+- **Inventory Alerts:** Notify users when stock levels are low.
+
+## Author
+
+**Muhammad Hares Ramay**
+
+## License
+
+This project is currently not published under a specified open-source license.
