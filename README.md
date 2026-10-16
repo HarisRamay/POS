@@ -31,7 +31,7 @@ Make sure you have **Node.js** and **npm** installed on your computer.
 ### 1. Clone the Repository
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/HarisRamay/POS.git
 ```
 
 ### 2. Navigate to the Project Folder
