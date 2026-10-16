@@ -267,23 +267,32 @@
 }
 
 .modal-cancel-btn {
-    background: #fff;
-    color: #4a3325;
-    border: 1px solid #ded6cc;
+    padding: 8px 10px;
+  border: 1px solid #e2d5c8;
+  border-radius: 7px;
+  background: #fff;
+  color: #5c402d;
+  cursor: pointer;
+  font-size: 12px;
 }
 
 .modal-cancel-btn:hover {
-    background: #f7f3ed;
+    background: #f4ece3;
+    
 }
 
 .modal-submit-btn {
-    background: #4a3325;
-    color: #fff;
-    border: 1px solid #8b7355;
+   padding: 8px 10px;
+  border: 1px solid #e2d5c8;
+  border-radius: 7px;
+  background: #fff;
+  color: #5c402d;
+  cursor: pointer;
+  font-size: 12px;
 }
 
 .modal-submit-btn:hover {
-    background: #725b40;
+    background: #f4ece3;
 }
 
 @media (max-width: 600px) {
