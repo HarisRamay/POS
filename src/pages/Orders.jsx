@@ -72,7 +72,7 @@ export default function Orders() {
 
                 <div className="orderStatCard">
                     <span>Completed Sales</span>
-                    <h2>${totalSales.toLocaleString(undefined, {
+                    <h2>Rs.{totalSales.toLocaleString(undefined, {
                         minimumFractionDigits: 2,
                         maximumFractionDigits: 2,
                     })}</h2>
@@ -139,7 +139,7 @@ export default function Orders() {
                                         )}
                                     </td>
                                     <td className="orderAmount">
-                                        ${Number(order.total).toFixed(2)}
+                                        {Number(order.total).toFixed(2)}
                                     </td>
                                     <td>{order.payment || "Cash"}</td>
                                     <td>

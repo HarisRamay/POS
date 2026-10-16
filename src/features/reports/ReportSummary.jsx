@@ -20,7 +20,7 @@ export default function ReportSummary({ orders }) {
         <section className="reportSummary">
             <article className="reportStatCard">
                 <span>Total Sales</span>
-                <strong>${totalSales.toFixed(2)}</strong>
+                <strong>Rs {totalSales.toFixed(2)}</strong>
             </article>
 
             <article className="reportStatCard">
@@ -30,7 +30,7 @@ export default function ReportSummary({ orders }) {
 
             <article className="reportStatCard">
                 <span>Average Order Value</span>
-                <strong>${averageOrderValue.toFixed(2)}</strong>
+                <strong>Rs {averageOrderValue.toFixed(2)}</strong>
             </article>
 
             <article className="reportStatCard">

@@ -14,7 +14,7 @@
 .customers-header h1 {
   margin: 0 0 8px;
   font-size: 32px;
-  color: #4a3325;
+  
 }
 
 .customers-header p {
@@ -27,7 +27,7 @@
   padding: 12px 18px;
   border: none;
   border-radius: 8px;
-  background: #18181b;
+  background: #4a3325;
   color: white;
   cursor: pointer;
 }
@@ -217,7 +217,7 @@
     border: none;
     font-size: 28px;
     line-height: 1;
-    color: #806f62;
+    color: #4a3325;
     cursor: pointer;
 }
 
@@ -277,7 +277,7 @@
 }
 
 .modal-submit-btn {
-    background: #18181b;
+    background: #4a3325;
     color: #fff;
     border: 1px solid #8b7355;
 }

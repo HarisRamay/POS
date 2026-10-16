@@ -40,7 +40,7 @@ export default function SalesOverview({ orders }) {
                             <YAxis />
                             <Tooltip
                                 formatter={(value) =>
-                                    `$${Number(value).toFixed(2)}`
+                                    `Rs ${Number(value).toFixed(2)}`
                                 }
                             />
                             <Line

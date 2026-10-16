@@ -47,7 +47,7 @@ export default function TopSellingItems({orders=[]}) {
               <tr key={item.id}>
                 <td>{item.name}</td>
                 <td>{item.quantity}</td>
-                <td>${item.revenue.toFixed(2)}</td>
+                <td>Rs {item.revenue.toFixed(2)}</td>
               </tr>
             ))}
           </tbody>

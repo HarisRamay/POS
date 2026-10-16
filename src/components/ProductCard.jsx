@@ -17,7 +17,7 @@ import { memo } from "react";
 
                 <div className="productBottom">
                     <span className="productPrice">
-                        ${product.price}
+                        Pkr. {product.price}
                     </span>
 
                     <button

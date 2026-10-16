@@ -51,7 +51,7 @@ export default function SalesByCategory({ orders = [] }) {
                 </div>
 
                 <strong className="salesCategoryTotal">
-                    ${totalSales.toFixed(2)}
+                    Rs.{totalSales.toFixed(2)}
                 </strong>
             </div>
 
@@ -79,7 +79,7 @@ export default function SalesByCategory({ orders = [] }) {
 
                                 <Tooltip
                                     formatter={(value) => [
-                                        `$${Number(value).toFixed(2)}`,
+                                        `Rs ${Number(value).toFixed(2)}`,
                                         "Revenue",
                                     ]}
                                 />
@@ -112,7 +112,7 @@ export default function SalesByCategory({ orders = [] }) {
                                     </div>
 
                                     <strong className="salesCategoryRevenue">
-                                        ${item.sales.toFixed(2)}
+                                            Rs {item.sales.toFixed(2)}
                                     </strong>
                                 </div>
                             );

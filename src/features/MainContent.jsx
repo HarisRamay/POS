@@ -1,5 +1,5 @@
-import "./MainContent.css"
-import { useState } from "react";
+import "./MainContent.css";
+import { useState, useEffect, useRef } from "react";
 import products from "../components/products";
 import ProductCard from "../components/ProductCard";
 import OrderCart from "../features/OrderCart";
@@ -12,18 +12,38 @@ export default function MainContent() {
     const [cart, setCart] = useState([]);
     const [cartOpen, setCartOpen] = useState(false);
 
+    const searchContainerRef = useRef(null);
+
     const { addOrder } = useOrders();
 
+    // Close dropdown when clicking outside the search container
+    useEffect(() => {
+        function handleOutsideClick(event) {
+            if (
+                searchContainerRef.current &&
+                !searchContainerRef.current.contains(event.target)
+            ) {
+                setIsOpen(false);
+            }
+        }
+
+        document.addEventListener("mousedown", handleOutsideClick);
+
+        return () => {
+            document.removeEventListener(
+                "mousedown",
+                handleOutsideClick
+            );
+        };
+    }, []);
+
     const addToCart = (product) => {
-
         setCart((currentCart) => {
-
             const existingProduct = currentCart.find(
                 (item) => item.id === product.id
             );
 
             if (existingProduct) {
-
                 return currentCart.map((item) =>
                     item.id === product.id
                         ? { ...item, quantity: item.quantity + 1 }
@@ -50,7 +70,6 @@ export default function MainContent() {
     };
 
     const increaseQuantity = (id) => {
-
         setCart((currentCart) =>
             currentCart.map((item) =>
                 item.id === id
@@ -61,10 +80,9 @@ export default function MainContent() {
                     : item
             )
         );
-
     };
-    const decreaseQuantity = (id) => {
 
+    const decreaseQuantity = (id) => {
         setCart((currentCart) =>
             currentCart
                 .map((item) =>
@@ -77,7 +95,6 @@ export default function MainContent() {
                 )
                 .filter((item) => item.quantity > 0)
         );
-
     };
 
     const filteredProducts = products.filter((product) => {
@@ -95,57 +112,89 @@ export default function MainContent() {
     const handleOptionClick = (selectedCategory) => {
         setCategory(selectedCategory);
         setIsOpen(false);
-    }
+    };
+
     return (
         <div className="mainContent">
             <div className="productsSection">
-                <div className="searchContainer">
+                <div
+                    className="searchContainer"
+                    ref={searchContainerRef}
+                >
                     <div className="searchBox">
-                        <input type="text"
-                            placeholder="Search Product....."
+                        <input
+                            type="text"
+                            placeholder={category === "All Products" ? "Search Product....." : category}
                             value={search}
-                            onChange={(e) => setSearch(e.target.value)} />
+                            onChange={(e) => setSearch(e.target.value)}
+                        />
 
-                        <button onClick={() => setIsOpen(!isOpen)}>
+                        <button
+                            type="button"
+                            onClick={() => setIsOpen((prev) => !prev)}
+                        >
                             {isOpen ? "▲" : "▼"}
                         </button>
-
                     </div>
+
                     {isOpen && (
                         <div className="dropdownMenu">
-                            <button onClick={() => handleOptionClick("All Products")}>
+                            <button
+                                type="button"
+                                onClick={() => handleOptionClick("All Products")}
+                            >
                                 All Products
                             </button>
-                            <button onClick={() => handleOptionClick("Pizza")}>
+
+                            <button
+                                type="button"
+                                onClick={() => handleOptionClick("Pizza")}
+                            >
                                 Pizza
                             </button>
-                            <button onClick={() => handleOptionClick("Burgers")}>
+
+                            <button
+                                type="button"
+                                onClick={() => handleOptionClick("Burgers")}
+                            >
                                 Burgers
                             </button>
-                            <button onClick={() => handleOptionClick("Pasta")}>
+
+                            <button
+                                type="button"
+                                onClick={() => handleOptionClick("Pasta")}
+                            >
                                 Pasta
                             </button>
-                            <button onClick={() => handleOptionClick("Desserts")}>
+
+                            <button
+                                type="button"
+                                onClick={() => handleOptionClick("Desserts")}
+                            >
                                 Desserts
                             </button>
-                            <button onClick={() => handleOptionClick("Beverages")}>
+
+                            <button
+                                type="button"
+                                onClick={() => handleOptionClick("Beverages")}
+                            >
                                 Beverages
                             </button>
                         </div>
                     )}
-
                 </div>
+
                 <div className="productGrid">
                     {filteredProducts.map((product) => (
                         <ProductCard
                             key={product.id}
                             product={product}
-                            onAdd={addToCart} />
+                            onAdd={addToCart}
+                        />
                     ))}
-
                 </div>
-
             </div>
+
             {cartOpen && (
                 <OrderCart
                     cart={cart}
@@ -165,14 +214,8 @@ export default function MainContent() {
 
                         return savedOrder;
                     }}
-
                 />
             )}
-
         </div>
-
-
-
     );
-
 }

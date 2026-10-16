@@ -30,7 +30,7 @@ export default function RecentOrders() {
                             <tr key={order.id}>
                                 <td>{order.id}</td>
                                 <td>{order.customer || "Walk-in Customer"}</td>
-                                <td>${Number(order.total).toFixed(2)}</td>
+                                <td>{Number(order.total).toFixed(2)}</td>
                                 <td>
                                     <span
                                         className={`orderStatus ${order.status.toLowerCase()}`}

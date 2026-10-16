@@ -1,21 +1,43 @@
+
 import "./Header.css";
+import { Link, NavLink } from "react-router-dom";
 
-export default function Header(){
+const categories = [
+    "Pizza",
+    "Appetizers",
+    "Beverages",
+    "Pasta",
+    "Fried Items",
+];
 
-return(
-    <nav className="navbar">
-       <h2>POS System</h2>
+export default function Header() {
+    return (
+        <header className="navbar">
+            <Link to="/mainpage" className="navbarBrand">
+                <span className="brandIcon">P</span>
 
-       <a href="">Pizza</a>
-        <a href="">Appetizers</a>
-        <a href="">Beverages</a>
-        <a href="">Pasta</a>
-        <a href="">Fried Items</a>
+                <span className="brandText">
+                    <strong>POS System</strong>
+                    <small>Restaurant management</small>
+                </span>
+            </Link>
 
-       <button className="headerButton">
-           Menu
-       </button>
-    </nav>
-);
+            <nav className="navbarCategories" aria-label="Product categories">
+                {categories.map((category) => (
+                    <NavLink
+                        key={category}
+                        to={`/mainpage?category=${encodeURIComponent(category)}`}
+                        className="categoryLink"
+                    >
+                        {category}
+                    </NavLink>
+                ))}
+            </nav>
 
+            <Link to="/mainpage" className="headerButton">
+                <span>Menu</span>
+                <span className="menuArrow">↗</span>
+            </Link>
+        </header>
+    );
 }

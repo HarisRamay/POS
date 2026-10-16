@@ -63,8 +63,8 @@ function OrderCart({
         <tr>
           <td>${item.name}</td>
           <td>${item.quantity}</td>
-          <td>$${item.price.toFixed(2)}</td>
-          <td>$${(item.price * item.quantity).toFixed(2)}</td>
+          <td>${item.price.toFixed(2)}</td>
+          <td>${(item.price * item.quantity).toFixed(2)}</td>
         </tr>
       `
             )
@@ -170,24 +170,24 @@ function OrderCart({
         <div class="summary">
           <p>
             <span>Subtotal</span>
-            <span>$${subtotal.toFixed(2)}</span>
+            <span>${subtotal.toFixed(2)}</span>
           </p>
 
           <p>
             <span>Tax (${taxRate}%)</span>
-            <span>$${tax.toFixed(2)}</span>
+            <span>${tax.toFixed(2)}</span>
           </p>
 
           <p>
             <span>Discount</span>
-            <span>-$${appliedDiscount.toFixed(2)}</span>
+            <span>-${appliedDiscount.toFixed(2)}</span>
           </p>
 
           <div class="divider"></div>
 
           <p class="grand-total">
             <span>Total</span>
-            <span>$${total.toFixed(2)}</span>
+            <span>${total.toFixed(2)}</span>
           </p>
         </div>
 
@@ -233,7 +233,7 @@ function OrderCart({
                             <h3>{item.name}</h3>
 
                             <p>
-                                ${item.price}
+                                Pkr {item.price}
                             </p>
 
                         </div>
@@ -278,7 +278,7 @@ function OrderCart({
 
                 <div className="summaryRow">
                     <span>Subtotal</span>
-                    <span>${subtotal.toFixed(2)}</span>
+                    <span>Pkr {subtotal.toFixed(2)}</span>
                 </div>
 
                 <div className="summaryRow">
@@ -294,7 +294,7 @@ function OrderCart({
                 </div>
 
                 <div className="summaryRow discountRow">
-                    <label>Discount ($)</label>
+                    <label>Discount (Pkr)</label>
                     <input
                         type="number"
                         min="0"
@@ -313,7 +313,7 @@ function OrderCart({
 
                 <div className="totalRow">
                     <span>Total</span>
-                    <span>${total.toFixed(2)}</span>
+                    <span>Pkr {total.toFixed(2)}</span>
                 </div>
 
                 <button

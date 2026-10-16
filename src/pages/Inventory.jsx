@@ -232,7 +232,7 @@ export default function Inventory() {
 
                     <td>{product.category}</td>
                     <td>{product.stock}</td>
-                    <td>${product.price.toFixed(2)}</td>
+                    <td>{product.price.toFixed(2)}</td>
 
                     <td>
                       <span
@@ -341,7 +341,7 @@ export default function Inventory() {
 
             <div className="inventoryFormRow">
               <label>
-                Price ($)
+                Price
                 <input
                   type="number"
                   min="0"
